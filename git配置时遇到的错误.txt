@@ -1,0 +1,41 @@
+
+1.配置git时报错的解决：https://blog.csdn.net/xiaobinqt/article/details/83546322
+git 解决 fatal: 'origin' does not appear to be a git repository
+刚上传代码到 github 的时候,当我输入 git push -u origin master 的时,提示：
+
+fatal: 'origin' does not appear to be a git repository
+
+
+解决办法:
+
+控制台中输入
+
+git remote add origin git@github.com:xxse/xx.git
+再次输入
+
+git push -u origin master
+就可以正常提交了.
+
+
+
+2.git配置时出现 *** Please tell me who you are. Run...... 错误
+
+*** Please tell me who you are.  https://blog.csdn.net/qq_32846595/article/details/75330360
+
+Run
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+fatal: unable to auto-detect email address (got 'Administrator@V92I2BPQSUKZBCB.(          
+
+
+
+解决办法：
+
+1git init
+2.git config user.name 【空格】"someone"
+3.git config user.email 【空格】"someone@someplace.com"
+4.git add *
+5.git commit -m "some init msg"
+在2 ，3 中一定要加空格！！！
