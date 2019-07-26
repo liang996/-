@@ -171,10 +171,7 @@ Hi username! You've successfully authenticated, but GitHub does not provide shel
 如果用户名是正确的,你已经成功设置SSH密钥。如果你看到 “access denied” ，则表示拒绝访问，那么你就需要使用 https 去访问，而不是 SSH 。
 
 可以参考网站：
-
-[git使用以及免密码登陆]（https://blog.csdn.net/haifeng_gu/article/details/72512026）
-
-[解决每次push代码到github都需要输入用户名和密码的方法]（https://blog.csdn.net/chunyang_guo/article/details/12500577）
-
-[git-ssh 配置和使用]（https://hetaoo.iteye.com/blog/2323944）
+<a  href ="https://blog.csdn.net/haifeng_gu/article/details/72512026">git使用以及免密码登陆</a>
+<a  href ="https://blog.csdn.net/chunyang_guo/article/details/12500577">解决每次push代码到github都需要输入用户名和密码的方法</a>
+<a  href ="https://hetaoo.iteye.com/blog/2323944">git-ssh 配置和使用</a>
 
