@@ -1,24 +1,24 @@
 
-1.ÅäÖÃgitÊ±±¨´íµÄ½â¾ö£ºhttps://blog.csdn.net/xiaobinqt/article/details/83546322
-git ½â¾ö fatal: 'origin' does not appear to be a git repository
-¸ÕÉÏ´«´úÂëµ½ github µÄÊ±ºò,µ±ÎÒÊäÈë git push -u origin master µÄÊ±,ÌáÊ¾£º
-
+### 1.é…ç½®gitæ—¶æŠ¥é”™çš„è§£å†³ï¼š`https://blog.csdn.net/xiaobinqt/article/details/83546322`
+git è§£å†³ fatal: 'origin' does not appear to be a git repository
+åˆšä¸Šä¼ ä»£ç åˆ° github çš„æ—¶å€™,å½“æˆ‘è¾“å…¥ git push -u origin master çš„æ—¶,æç¤ºï¼š
+```
 fatal: 'origin' does not appear to be a git repository
+```
 
+è§£å†³åŠæ³•:
 
-½â¾ö°ì·¨:
-
-¿ØÖÆÌ¨ÖĞÊäÈë
+æ§åˆ¶å°ä¸­è¾“å…¥
 
 git remote add origin git@github.com:xxse/xx.git
-ÔÙ´ÎÊäÈë
+å†æ¬¡è¾“å…¥
 
 git push -u origin master
-¾Í¿ÉÒÔÕı³£Ìá½»ÁË.
+å°±å¯ä»¥æ­£å¸¸æäº¤äº†.
 
 
 
-2.gitÅäÖÃÊ±³öÏÖ *** Please tell me who you are. Run...... ´íÎó
+2.gité…ç½®æ—¶å‡ºç° *** Please tell me who you are. Run...... é”™è¯¯
 
 *** Please tell me who you are.  https://blog.csdn.net/qq_32846595/article/details/75330360
 
@@ -31,11 +31,11 @@ fatal: unable to auto-detect email address (got 'Administrator@V92I2BPQSUKZBCB.(
 
 
 
-½â¾ö°ì·¨£º
+è§£å†³åŠæ³•ï¼š
 
 1git init
-2.git config user.name ¡¾¿Õ¸ñ¡¿"someone"
-3.git config user.email ¡¾¿Õ¸ñ¡¿"someone@someplace.com"
+2.git config user.name ã€ç©ºæ ¼ã€‘"someone"
+3.git config user.email ã€ç©ºæ ¼ã€‘"someone@someplace.com"
 4.git add *
 5.git commit -m "some init msg"
-ÔÚ2 £¬3 ÖĞÒ»¶¨Òª¼Ó¿Õ¸ñ£¡£¡£¡
+åœ¨2 ï¼Œ3 ä¸­ä¸€å®šè¦åŠ ç©ºæ ¼ï¼ï¼ï¼
