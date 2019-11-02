@@ -1,10 +1,8 @@
-
-### 1.配置git时报错的解决：`https://blog.csdn.net/xiaobinqt/article/details/83546322`
+1.配置git时报错的解决：`https://blog.csdn.net/xiaobinqt/article/details/83546322`
 git 解决 fatal: 'origin' does not appear to be a git repository
 刚上传代码到 github 的时候,当我输入 git push -u origin master 的时,提示：
-```
 fatal: 'origin' does not appear to be a git repository
-```
+
 
 解决办法:
 
