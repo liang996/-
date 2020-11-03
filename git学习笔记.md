@@ -1,23 +1,63 @@
-# 1. 什么是git
+---
+title: git基本操作笔记
+top: false
+cover: false
+toc: true
+mathjax: true
+date: 2020-11-03 15:57:54
+password:
+summary: Git是一个免费的开源 分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。
+tags:
+  - git
+categories:
+  - 工具
+---
 
-#### 简单的理解
+目录
+===
+<!-- TOC -->
+  - [目录](#目录)
+  - [1. 什么是git](#1-什么是git)
+  - [2.git与svn的区别](#2git与svn的区别)
+  - [3.git的安装及其配置流程](#3git的安装及其配置流程)
+  - [4.git的基本配置](#4git的基本配置)
+  - [4.git的核心概念](#4git的核心概念)
+  - [5.GIT仓库基本操作（版本库）](#5git仓库基本操作版本库)
+  - [6.删除文件](#6删除文件)
+  - [7.文件移动或者重命名文件（mv ）](#7文件移动或者重命名文件mv-)
+  - [8.git远程仓库](#8git远程仓库)
+  - [9.git标签](#9git标签)
+  - [10.忽略特殊文件](#10忽略特殊文件)
+
+
+
+
+
+
+Git是一个免费的开源 分布式版本控制系统，旨在快速高效地处理从小型到大型项目的所有内容。
+
+## 1. 什么是git
+
+**简单的理解**
 
 * git是一个开源的分布式控制版本控制系统
 * 可以有效记录每一次的修改提交操作
 * 可以配合多个开发人员相互协调性的工作
 * 可以将工程放在本地和远程操作
 
-# 2.git与svn的区别
+## 2.git与svn的区别
 
 * git是分布式的，svn是集中式的，这个区别也是最为核心的区别：因为 Git 是分布式的，所以 Git 支持离线工作，在本地可以进行很多操作。而 SVN 必须联网才能正常工作。
 * 在易用性这方面，SVN相对于git会好得多，简单易上手，对新手很友好。而git的使用，必须要先了解git的一些基本命令，如git init 、git pull、git push等等...
 * Git 没有一个全局的版本号，而 SVN 有：目前为止这是跟 SVN 相比 Git 缺少的最大的一个特征。
 
-# 3.git的安装及其配置流程
+## 3.git的安装及其配置流程
 
 要使用Git，第一步当然是安装Git了
 
-#### 在Linux上安装Git
+**在Linux上安装Git**
+
+ 
 首先，你可以试着输入git，看看系统有没有安装Git：
 ```
 $ git
@@ -32,44 +72,60 @@ sudo apt-get install git
 
 如果是其他Linux版本，可以直接通过源码安装。先从Git官网下载源码，然后解压，依次输入：**./config，make，sudo make install**这几个命令安装就好了。
 
-#### Mac 平台上安装
+**Mac 平台上安装**
+
 在 Mac 平台上安装 Git 最容易的当属使用图形化的 Git 安装工具，下载地址为：
 
 http://sourceforge.net/projects/git-osx-installer/
 
-#### Windows 平台上安装
+
+**Windows 平台上安装**
   目前我个人的电脑用的是windows,所以我主要记录git在windows上面的安装操作
 在 Windows 平台上安装 Git 同样轻松，有个叫做 msysGit 的项目提供了安装包，可以到 GitHub 的页面上下载 exe 安装文件并运行：
 
 安装包下载地址：https://gitforwindows.org/ 或者直接搜索给git的安装
 
-#### 详细安装步骤如下：
+**详细安装步骤如下：**
 
-1.从git官网下一个git安装包。
+**1.从git官网下一个git安装包。**
+
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708094628081-1720506945.png)
 
-2.点击git.exe安装程序，点击【next】
+
+**2.点击git.exe安装程序，点击【next】**
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708095223800-1578957376.png)
 
-3、选择安装目录
+
+**3.选择安装目录**
+
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708095553956-959136009.png)
 
-4、选择组件
+
+**4、选择组件**
+
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708095746081-2118617935.png)
 
-5、开始菜单目录名设置
+
+
+**5、开始菜单目录名设置**
+
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708100131315-255359377.png)
 
-6、选择使用命令行环境
+
+
+**6、选择使用命令行环境**
+
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708100626534-974313591.png)
 
-7、以下三步默认，直接点击下一步
+
+**7、以下三步默认，直接点击下一步**
+
 
 ![alt text](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708100920581-338347945.png)
 
@@ -77,37 +133,47 @@ http://sourceforge.net/projects/git-osx-installer/
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708101627534-2061727948.png)
 
- 8、安装完成
+
+ **8、安装完成**
+
  
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708102108237-112030650.png)
 
-9、检验是否安装成功
+
+
+ **9、检验是否安装成功**
+
 
 回到电脑桌面，鼠标右击如果看到有两个git单词则安装成功
 
 ![](https://images2015.cnblogs.com/blog/810514/201707/810514-20170708104121206-372739.png)
 
-# 4.git的基本配置
+## 4.git的基本配置
 git提供了一个叫** git config** 的工具，它用于专门配置或读取相应的工作环境变量
 
 在gGit安装之后需要进行一些基本信息设置：
 
-a.设置用户名：
 
-```
+ **设置用户名**
+
+
+```bash
 git config --global  user.name   【空格】"你在github上面注册的用户名"；
 ```
+ **设置用户邮箱**
 
-b.设置用户邮箱：
 
 ```
 git config --global  user.email 【空格】 "你在github上面注册的用户邮箱"；
 ```
 
-c.配置ok之后，我们用如下命令来看看是否配置成功:git config --list，或者在使用`vim ~/.gitconfig` 
+
+ **检查是否配置成功**
+
+配置ok之后，我们用如下命令来看看是否配置成功:git config --list，或者在使用`vim ~/.gitconfig` 
 命令,如果显示内容是下面信息，则配置成功
 
-```
+```bash
 [http]
     postBuffer = 2M
 [user]
@@ -115,23 +181,26 @@ c.配置ok之后，我们用如下命令来看看是否配置成功:git config -
     email = test@runoob.com
   ```
 
-#### 注意如下：
+ **注意如下：**
+
 * git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址.
 
 * 设置用户名和用户邮箱时 ，一定不要忘记**打空格**，不然会报如下错误：
-```
+
+```bash
 *** Please tell me who you are.  
 Run
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
 to set your account's default identity.
 Omit --global to set the identity only in this repository.
-fatal: unable to auto-detect email address (got 'Administrator@V92I2BPQSUKZBCB.(          
+fatal: unable to -detect email address (got 'Administrator@V92I2BPQSUKZBCB.(          
 ```
 
-# 5.git的核心概念
+## 4.git的核心概念
 
-#### Git 最核心的一个概念就是工作流。
+
+**git 最核心的一个概念就是工作流。**
 
 * 工作区(Workspace)是电脑中实际的目录: 主要执行添加，编辑，修改文件等动作。
 
@@ -139,7 +208,10 @@ fatal: unable to auto-detect email address (got 'Administrator@V92I2BPQSUKZBCB.(
 
 * 仓库区(Repository)，分为本地仓库和远程仓库： 是最终确定文件保存到仓库，成为一个新的版本，并对他人可见。
 
-####  简单的说,Git 工作的基本流程是：
+
+
+**简单的说,Git 工作的基本流程是**
+
 * 克隆 Git 资源作为工作目录。
 * 在克隆的资源上添加或修改文件。
 * 如果其他人修改了，你可以更新资源。
@@ -148,14 +220,15 @@ fatal: unable to auto-detect email address (got 'Administrator@V92I2BPQSUKZBCB.(
 * 如果发现错误，可以撤回提交并再次修改并提交。
 
 
-# 6.GIT仓库基本操作（版本库）
+## 5.GIT仓库基本操作（版本库）
 
-#### 版本库的介绍（何为版本库）：
+**版本库的介绍（何为版本库）**
 
 版本库又名也叫仓库，英文名repositotry,可以简单的理解为一个目录，这个目录里面的使用文件都被给git管理起来，每个文件的修改、删除，git都会实时记录下来，这样方便了将每个每个时刻的更改恢复。
 
 *首先，选择一个合适的地方（我选择了D盘，我的电脑是Win 7），常见一个空目录：
-```
+
+```bash
 $ cd D:      //切换到D盘
 $ mkdir Git  //创建文件夹命令
 $ cd Git     //切换到指定文件夹命令
@@ -163,35 +236,40 @@ $ git  init     //切换到指定文件夹命令
 ```
 **注意**: 如果你使用Windows系统，为了避免遇到各种莫名其妙的问题，请确保目录名（包括父目录）不包含中文。
 
-#### 1. 初始化本地git仓库（git init）
+
+**1. 初始化本地git仓库（git init）**
+
+
 Git 使用 git init 命令来初始化一个 Git 仓库，Git 的很多命令都需要在 Git 的仓库中运行，所以 git init 是使用 Git 的第一个命令。
 
 在执行完成 git init 命令后，Git 仓库会生成一个 .git 目录，它是git进行跟踪和管理版本库，禁止修改删改此文件(如果没看到可能是您的电脑不显示隐藏文件,在命令行工具运行 ls -ah可查看);该目录包含了资源的所有元数据，其他的项目目录保持不变（不像 SVN 会在每个子目录生成 .svn 目录，Git 只在仓库的根目录生成 .git 目录）。
 
+**2.把文件添加到版本库（git add <文件名>）**
 
-#### 2.把文件添加到版本库（git add <文件名>）
+
 
 我们新建一个文件，如gitNOte.txt文件，内容随便编辑，不过内容尽可能的有价值，内容编辑好后，一定要放到 你刚才创建的Git目录下（子目录也行），因为这是一个Git仓库，放到其他地方Git再厉害也找不到这个文件。
 
 
 将一个文件放到Git仓库需要二步：
 
-(1)使用git add将文件添加到仓库：
+(1)使用git add将文件添加到仓库
 
-  ```
+
+```bash
 $ git add gitNOte.txt
 ```
+(2)使用git commit将文件提交到仓库
 
 
-(2)使用git commit将文件提交到仓库：
-
-```
+```bash
 git commit -m "提交内容说明"
 ```
 
 注：git commit命令，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。
 
-* git commit详解
+
+**git commit详解**
 
 commit可以一次提交多个自己想要指定提交的文件：
 ```
@@ -208,7 +286,10 @@ $ git add .   //将全部文件添加
 $ git commit -m "将全部文件添加"
 ```
 
-* git status详解
+
+**git status详解**
+
+
 
 我们已经成功地添加并提交了一个gitNOte.txt文件，现在我想继续修改gitNOte.txtt文件，
 
@@ -226,7 +307,7 @@ vi gitNOte.txt  //编辑文件内容命令
 
 修改完成后现在，运行git status命令看看结果：
 
-```
+```bash
 $ git status
 On branch master
 Changes not staged for commit:
@@ -250,7 +331,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 一旦提交后，如果你又没有对工作区做任何修改，那么工作区就是“干净”的,控制台将显示：
 
-```
+```bash
 $ git status
 On branch master
 nothing to commit, working tree clean
@@ -259,30 +340,33 @@ nothing to commit, working tree clean
 * git diff(查看修改内容)
 比如你想知道gitNOte.txt文件在上一次更新时做了哪些改动 ，所以，需要用git diff这个命令看看，这个命令会显示你没改动前和改动后的内容显示给你，形成对比。
 
-#### 3.git回退到某个历史版本（版本回退）
+**git回退到某个历史版本（版本回退）**
 
-* 使用`git log`命令查看所有的历史版本 
+
+使用`git log`命令查看所有的历史版本 
 
 当你每提交一个更改时，会形成一个行新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线
 
 **注意**：最新的提交版本在最上面，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成`git reset –hard HEAD~100`。 如果觉得上面的 git log 显示的信息太多的话，可以使用命令 `git log --pretty = online `(注意是两个杠哦)
 
 
-* 回滚到指定的版本
+回滚到指定的版本
+
 获取某个历史版本的id，假设查到历史版本的id是`139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96`
 
-```
+```bash
 git reset -- hard  139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96
 
 ```
 
 (3).把修改推到远程服务器(强制提交)
 
-```
+
+```bash
 git push -u origin master
 ```
+**回到现在（版本还原）**
 
-#### 4.回到现在（版本还原）
 当你用$ git reset --hard HEAD^回退到过去版本时，再想恢复到回来，就必须找到你现在版本的id。Git提供了一个命令git reflog用来记录你的每一次命令：
 
 **步骤1**.获取到版本号
@@ -302,7 +386,9 @@ git rest --hard  169dcfaa558e3276b30b6b2e5cbbb9c00bbdca96
 
 ```
 
-#### 5.撤销修改（git checkout --文件名称）
+**撤销修改（git checkout --文件名称）**
+
+
 
 如果你在修改文件时，发现修改错了，想要撤销的话，可以使用以下命令：
 
@@ -322,7 +408,7 @@ git checkout --<file>     //file指的是文件的名称
 
 Git同样告诉我们，用命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：
 	
-```
+```bash
 $ git reset HEAD  文件名
 Unstaged changes after reset:
 M	gitNOte.txt
@@ -355,7 +441,7 @@ git checkout --file
 ```
 
 
-#### 6.删除文件（rm  文件名称）
+## 6.删除文件
 
 一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用rm命令删了：
 
@@ -365,7 +451,7 @@ rm  文件名                         //rm是remove单词的简称 （移除的�
 
 Git知道你删除了文件，git status命令会立刻告诉你哪些文件被删除了，现在你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：
 
-```
+```bash
 rm 文件名称
 git status
 git  rm 文件名称
@@ -375,39 +461,42 @@ git commit -m"移除文件"
 **注意1.**：先手动删除文件，然后使用git rm <file>和git add<file>效果是一样的。
 如果你不小心把不想删除的删除了，可以使用撤回命令.
 	
-```
+```bash
 git checkout --文件名称
 ```
 	
 **注意2.**：如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f
 
-```
+```bash
 git rm -f <file>
 
 ```
 
 **注意3.**：可以递归删除，即如果后面跟的是一个目录做为参数，则会递归删除整个目录中的所有子目录和文件：
-```
+
+```bash
 git rm –r *   //建议这个命令不要轻易用
 ```
 进入某个目录中，执行此语句，会删除该目录下的所有文件和子目录。
 
 
-#### 7.文件移动或者重命名文件（mv ）
+## 7.文件移动或者重命名文件（mv ）
 
 我们先把刚移除的 README 添加回来：
-```	
+
+```	bash
 $ git add gitNOte
 ```
 然后对其重名:
-```
+
+```bash
 $ git mv gitNOte  gitNOte.txt
 $ ls
 README.md
 ```
 
 
-# 7.git远程仓库
+##  8.git远程仓库
 Git是分布式版本控制系统，同一个Git仓库，可以分布到不同的机器上。怎么分布呢？
 
 好在这个世界上有个叫GitHub的神奇的网站，从名字就可以看出，这个网站就是提供Git仓库托管服务的，所以，只要注册一个GitHub账号，就可以免费获得Git远程仓库。
@@ -416,9 +505,11 @@ Git是分布式版本控制系统，同一个Git仓库，可以分布到不同�
 
 git设置免密码登录,生成ssh秘钥命令
 
-#### 创建SSH Key
 
-```
+
+**创建SSH Key**
+
+```bash
 ssh-keygen -t rsa -C “<email>”
 ```
 **步骤1**：命令输入完成后，一直回车。会在本地生成一个**.ssh**文件，打开该文件会看到默认保存位置当前   ~/.ssh/id_rsa（私密） 和id_rsa.pub（公密），将生成的公密用记事本打开，并复制。
@@ -436,17 +527,20 @@ ssh-keygen -t rsa -C “<email>”
 ![](https://images2015.cnblogs.com/blog/925240/201604/925240-20160423163456335-846446253.jpg
 )
 
-#### 测试连通性
+
+
+**测试连通性**
+
 
 在git Bash 中输入以下代码
 
-```
+```bash
 $ ssh -T git@github.com
 ```
 
 当你输入以上代码时，会有一段警告代码，如：
 
-```
+```bash
 The authenticity of host 'github.com (192.30.255.112)' can't be established.
 RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
 Are you sure you want to continue connecting (yes/no)?
@@ -477,7 +571,8 @@ Hi username! You've successfully authenticated, but GitHub does not provide shel
 **注意事项**：在GitHub上免费托管的Git仓库，任何人都可以看到喔（但只有你自己才能改）。所以，不要把敏感信息放进去，造成信息泄露。如果你不想让别人看到Git库，有两个办法，一是：让GitHub把公开的仓库变成私有的，这样别人就看不见了（不可读更不可写）。另一个办法是自己动手，搭一个Git服务器，因为是你自己的Git服务器，所以别人也是看不见的。
 
 
-####　添加远程仓库（git　remote）
+**添加远程仓库（git　remote）**
+
 现在的情景是，你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，这样，GitHub上的仓库既可以作为备份，又可以让其他人通过该仓库来协作，真是一举多得。
 
 
@@ -492,12 +587,14 @@ Hi username! You've successfully authenticated, but GitHub does not provide shel
 根据GitHub的提示，在本地的studygit仓库下运行命令
 
 （１）将远程项目和本地项目进行关联
-```
+
+```bash
 $ git remote add origin ＋　分支地址 //origin是远程库的名字，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库
 ```
 
 （２）．第一次推送master分支的所有内容到远程仓库
-```
+
+```bash
 $ git push -u origin master　　　//第一次提交需要这么做，第二次提交就可以直接用`git push origin master`或者 `git push `
 
 ```
@@ -509,12 +606,15 @@ $ git push -u origin master　　　//第一次提交需要这么做，第二次
 
 推送成功后，可以立刻在GitHub页面中看到远程库的内容已经和本地一模一样
 
-#### 从远程库克隆（git clone）
+
+
+**从远程库克隆（git clone）**
 
 使用 git clone 拷贝一个 Git 仓库到本地，让自己能够查看该项目，或者进行修改。
 
 如果你需要与他人合作一个项目，或者想要复制一个项目，看看代码，你就可以克隆那个项目。 执行命令：
-```
+
+```bash
  git clone [url]   //[url] 为你想要复制的项目
  
 ```
@@ -522,22 +622,30 @@ $ git push -u origin master　　　//第一次提交需要这么做，第二次
 ***注意事项*：
 要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。另外，Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。
 
-#### Git 分支管理
+
+**Git 分支管理**
+
+
 几乎所有的版本控制系统都以某种形式支持分支。 使用分支意味着你可以把你的工作从开发主线上分离开来，以免影响开发主线。
 
 有人把 Git 的分支模型称为必杀技特性，而正是因为它，将 Git 从版本控制系统家族里区分出来。
 
-####  创建分支命令：
-```
+**创建分支命令**
+
+```bash
 git branch 分支名称
 ```
-####  切换分支命令:
-```
+
+**切换分支命令**
+
+```bash
 git checkout (branchname)
 ```
 当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。
 
-####  创建并切换分支
+**创建并切换分支**
+
+
 git checkout命令加上-b参数表示创建并切换
 ```
 git checkout -b + 分支名称
@@ -545,13 +653,15 @@ git checkout -b + 分支名称
 git branch 分支名称
 git checkout (branchname)
 ```
-####  列出分支基本命令：
 
-```
+**列出分支基本命令**
+
+```bash
 git branch
 ```
 没有参数时，git branch 会列出你在本地的分支,默认是master。
-```
+
+```bash
 $ git branch
 * master //意思是：有一个叫做 master 的分支，并且该分支是当前分支
 ```
@@ -560,7 +670,7 @@ $ git branch
 
 如果我们要手动创建一个分支。执行 git branch (branchname) 即可。
 
-```
+```bash
 $ git branch A  //A为分支名称
 $ git branch
 * master
@@ -572,13 +682,17 @@ $ git branch
 
 使用分支将工作切分开来，从而让我们能够在不同开发环境中做事，并来回切换。
 
-####  删除分支：
-```
+
+**删除分支**
+
+
+```bash
 git breach -d 分支名称
 ```
 
 例如我们要删除A分支：
-```
+
+```bash
 $ git branch
 * master
 A
@@ -587,24 +701,26 @@ Deleted branch A (was 85fc7e7).
 $ git branch
 * master
 ```
-####  分支合并：
+**分支合并**
+
 一旦某分支有了独立内容，你终究会希望将它合并回到你的主分支。 你可以使用以下命令将任何分支合并到当前分支中去：
-```
+
+```bash
 git merge
 ```
 
 切换回master分支后，把A分支的工作成果合并到master分支上：
-```
+```bash
 $ git merge A
 ```
 合并完后就可以删除分支:
-```
+```bash
 $ git branch -d  A 
 ```
 如果真的想要删除分支并丢掉那些工作，如同帮助信息里所指出的，可以使用 -D 选项强制删除它。
 
 Git鼓励大量使用分支：
-```
+```bash
 
 
 查看分支：git branch
@@ -621,13 +737,14 @@ Git鼓励大量使用分支：
 强制删除分支：git branch -D <name>
 ```
 
-####  解决分支合并的冲突：
+
+**解决分支合并的冲突**
 
 如果master分支和A分支各自都分别有新的提交，这种情况下，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突，
 
 Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容
 再提交：
-```
+```bash
 $ git add gitnote.txt 
 $ git commit -m "conflict fixed"
 [master cf810e4] conflict fixed
@@ -641,42 +758,45 @@ $ git commit -m "conflict fixed"
 
 用git log --graph命令可以看到分支合并图。
   
-####  多人协作：
+
+**多人协作**
 
 当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。
 
 要查看远程库的信息，用`git remote`：
-```
+```bash
 $ git remote
 origin
 ```
 或者，用`git remote -v`显示更详细的信息：
-```
+```bash
 $ git remote -v
 origin  git@github.com:michaelliao/learngit.git (fetch)
 origin  git@github.com:michaelliao/learngit.git (push)
 ```
 上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址。
 
-####  推送分支：
+
+**推送分支**
+
 推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
-```
+```bash
 $ git push origin master
 ```
 如果要推送其他分支，比如dev，就改成：
-```
+```bash
 $ git push origin dev
 ```
 
 创建远程origin的dev分支到本地，于：
-```
+```bash
 $ git checkout -b dev origin/dev
 ```
 
 
 多人协作的工作模式通常是这样：
 
-首先，可以试图用git push origin <branch-name>推送自己的修改；
+首先，可以试图用`git push origin <branch-name>`推送自己的修改；
 
 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
 
@@ -684,18 +804,19 @@ $ git checkout -b dev origin/dev
 
 没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
 
-如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+如果`git pull`提示`no tracking information`，则说明本地分支和远程分支的链接关系没有创建，用命令`git branch --set-upstream-to <branch-name> origin/<branch-name>`。
 
 这就是多人协作的工作模式，一旦熟悉了，就非常简单。
 
 
-# 8.git标签
+## 9.git标签
 发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。你可以使用 git tag 给它打上标签。
 
-####  创建标签
+
+**创建标签**
 
 　　在Git中打标签非常简单，首先，切换到需要打标签的分支上
-```
+```bash
 $ git branch -b master
 Switched to branch 'master'  //切换到分支“master”
 ```
@@ -703,7 +824,7 @@ Switched to branch 'master'  //切换到分支“master”
 
 指定标签并描述标签信息
 	
-```
+```bash
 $ git tag -a v1.0 -m “描述内容”
 ```
 **注意1.**：-a 选项意为"创建一个带注解的标签",为标签名称，-m指定说明文字。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 我推荐一直创建带注解的标签。　我们可以看到在提交对象信息上面，列出了此标签的提交者和提交时间，以及相应的标签说明
@@ -712,13 +833,14 @@ $ git tag -a v1.0 -m “描述内容”
 
 
 
-####  查看标签
+
+**查看标签**
 
 默认标签是打在最新提交的commit上的。有时候，如果忘了打标签怎么办呢？方法是找到历史提交的commit id，然后打上就可以了
 
 （1）.先用命令查看每次提交commit id
 
-```
+```bash
 git log --oneline  //将会显示每次提交的commit id
 ```
 
@@ -726,14 +848,14 @@ git log --oneline  //将会显示每次提交的commit id
 （2）.比方说要对create b.txt这次提交打标签，它对应的commit id是9ac9296，敲入命令
 
 
-```
+```bash
 git tag vo.9  9ac9296
 ```
 
 **注意**，标签不是按时间顺序列出，而是按字母排序的。查看标签信息可以用以下命令：
 
 （3）。可以用命令git tag查看所有标签：
-```
+```bash
 $ git tag
 v0.9
 v1.0
@@ -746,8 +868,7 @@ v1.0
 git show v1.0
 ```
 
-
-####  删除标签
+**删除标签**
 
 如果标签打错了，也可以删除
 ```
@@ -778,15 +899,17 @@ git push origin  标签名称
 
 点击Github项目中的release即可看到。
 
-# 8.忽略特殊文件
+# 10.忽略特殊文件
 
 有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件啦，等等，这个时候，你急需要一个办法把不想提交的东西不上传到仓库。好在Git考虑到了大家的感受，这个问题解决起来也很简单，在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
 
-#### 创建.gitignore文件
+**创建.gitignore文件**
+
+
 
 创建一个文件，文件名为：“.gitignore.”,注意前后都要有一个点，保存之后系统会自动重命名为“.gitignore”。或者用git bush创建touch.gitignore在文件夹就生成了一个“.gitignore”文件。
 
-####  配置语法：
+**创建.gitignore文件**
 
 以问号“？”通配单个字符
 
@@ -800,7 +923,8 @@ git push origin  标签名称
 
 此外。git对于.ignore配置文件是按照从上往下进行匹配的，意思就是如果前面的规则匹配的范围更大，则后面的规则将不会生效。
 
-####  举例：
+**实例**
+
 （1）规则： fd1/*
 　　说明：忽略目录 fd1 下的全部内容；注意，不管是根目录下的 /fd1/ 目录，还是某个子目录 /child/fd1/ 目录，都会被忽略；
 
